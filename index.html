@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-group my-3">
+        <input
+          id="search"
+          type="search"
+          class="form-control me-2"
+          placeholder="F.I.SH"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <select
+          class="btn btn-primary me-2"
+          type="button"
+          id="filterPosition"
+        ></select>
+        <select
+          class="btn btn-secondary me-2"
+          type="button"
+          id="filterCity"
+        ></select>
+        <button
+          class="btn btn-success"
+          type="button"
+          id="button-addon2"
+          data-bs-toggle="modal"
+          data-bs-target="#pupilModal"
+        >
+          Qoshish
+        </button>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">NO</th>
+            <th scope="col">Ism</th>
+            <th scope="col">Familiya</th>
+            <th scope="col">Address</th>
+            <th scope="col">Tugilgan kun</th>
+            <th scope="col">Lavozim</th>
+            <th scope="col">Lavozim Turi</th>
+            <th scope="col">Maoshi</th>
+            <th scope="col">Turmush qurganmi</th>
+            <th scope="col" class="text-end">Faoliyat</th>
+          </tr>
+        </thead>
+        <tbody id="pupilTable"></tbody>
+      </table>
+    </div>
+
+    <form class="row g-3 needs-validation" id="pupilForm" novalidate>
+      <div
+        class="modal fade"
+        id="pupilModal"
+        tabindex="-1"
+        aria-labelledby="pupilModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="pupilModalLabel">Malumotlar</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="col-12 mb-1">
+                <label for="firstName" class="form-label"
+                  >Ismini kiriting</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  placeholder="Tom"
+                  required
+                />
+                <div class="valid-feedback">Thanks 😘</div>
+                <div class="invalid-feedback">WTF 🤬</div>
+              </div>
+              <div class="col-12 mb-1">
+                <label for="lastName" class="form-label"
+                  >Familiyangizni kiriting
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  placeholder="Jerry"
+                  required
+                />
+                <div class="valid-feedback">Thanks 😘</div>
+                <div class="invalid-feedback">WTF 🤬</div>
+              </div>
+              <div class="col-12 mb-1">
+                <label for="pupilCity" class="form-label">Address</label>
+                <select class="form-select" id="pupilCity" required></select>
+                <div class="valid-feedback">Thanks 😘</div>
+              </div>
+              <div class="row">
+                <div class="col-6 mb-1">
+                  <label for="pupilGroup" class="form-label">
+                    Tugilgan kun
+                  </label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="datePupil"
+                    required
+                  />
+                  <div class="valid-feedback">Thanks 😘</div>
+                </div>
+                <div class="col-6 mb-1">
+                  <label for="positionPupil" class="form-label">Lovozim</label>
+                  <select
+                    class="form-select"
+                    id="positionPupil"
+                    required
+                  ></select>
+                  <div class="valid-feedback">Thanks 😘</div>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-6 mb-1">
+                  <label for="typePosition" class="form-label"
+                    >Lavozim turi</label
+                  >
+                  <select
+                    class="form-select"
+                    id="typePosition"
+                    required
+                  ></select>
+                  <div class="valid-feedback">Thanks 😘</div>
+                </div>
+                <div class="col-6 mb-1">
+                  <label for="salaryPupil" class="form-label">Maoshi</label>
+                  <input
+                    class="form-control"
+                    type="number"
+                    step="100"
+                    id="salaryPupil"
+                  />
+                  <div class="valid-feedback">Thanks 😘</div>
+                </div>
+              </div>
+              <div class="col-12 mb-1">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="isMarried"
+                  />
+                  <label for="isMarried" class="form-check-label">
+                    Uylanganmi
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-success" id="sendBtn">
+                Qo'shish
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form action=""></form>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

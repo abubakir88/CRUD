@@ -51,10 +51,10 @@ const getRow = ({
       <td>${position}</td>
       <td>${typeposition}</td>
       <td>${salary}</td>
-      <td>${isMarried ? "Ha" : "Yo'q"}</td>
+      <td>${isMarried}</td>
       <td class = "text-end">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pupilModal" onclick="editPupil(${id})">Edit</button>
-        <button class="btn btn-danger" onclick="deletePupil(${id})">Delete</button>
+        <button class="btn btn-danger" onclick="deletePupl(${id})">Delete</button>
       </td>
       </tr>
       `;
@@ -72,7 +72,7 @@ TypePosition.forEach((typeposition) => {
   typePosition.innerHTML += `<option value="${typeposition}">${typeposition}</option>`;
 });
 
-["Lavozim turini tanlang", ...TypePosition].forEach((typeposition) => {
+["Lavozimni tanlang", ...TypePosition].forEach((typeposition) => {
   filterPosition.innerHTML += `<option value="${typeposition}">${typeposition}</option>`;
 });
 
@@ -124,7 +124,7 @@ pupilForm.addEventListener("submit", function (e) {
       pupils.push(newPupil);
     }
     localStorage.setItem("pupils", JSON.stringify(pupils));
-    window.location.reload(); // bo'shatish uchun
+    window.location.reload();
   }
   getPupils();
 });
@@ -143,7 +143,7 @@ function editPupil(id) {
 }
 
 function deletePupil(id) {
-  let isConfirm = confirm("O'chirishni xohlaysizmi ?");
+  let isConfirm = confirm("Ochirishni xohlaysizmi?");
   if (isConfirm) {
     pupils = pupils.filter((pupil) => pupil.id != id);
     localStorage.setItem("pupils", JSON.stringify(pupils));
@@ -162,7 +162,7 @@ searchInput.addEventListener("input", function () {
 });
 
 filterPosition.addEventListener("change", function () {
-  if (this.value == "Lavozim turini tanlang") {
+  if (this.value == "Lovozimni tanlang") {
     getPupils();
   } else {
     filterPupils = pupils.filter((pupil) => pupil.typeposition == this.value);
